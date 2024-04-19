@@ -1,22 +1,59 @@
-let speech = new SpeechSynthesisUtterance();
-let voices = [];
-let voiceSelect = document.querySelector("select");
+const speechBox = document.querySelector(".speechBox"),
+speechBtn = document.querySelector(".convert"),
+voiceList = document.querySelector(".voices select");
 
-window.speechSynthesis.onvoiceschanged = () => {
-    //provides all the default voices available in the device
-    voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[0];
+//shows the voice options on dropdown
+let voiceOptions = []
+let synth = window.speechSynthesis;
+let isSpeaking = true;
 
-    voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
- 
-};
-//select and apply voices from dropdown menu
-voiceSelect.addEventListener("change", () =>{
-    speech.voice = voices[voiceSelect.value]
-})
+synth.addEventListener("voiceschanged", ()=>{
+  voiceOptions = synth.getVoices();
+  for(let i = 0; i < voiceOptions.length; i++){
+    // Creating an option tag with voice details
+    let option = "<option>"+voiceOptions[i].name+"</option>";
 
-// converts textarea text into default system speeech
-document.querySelector("button").addEventListener("click", () => {
-    speech.text = document.querySelector("textarea").value;
-    window.speechSynthesis.speek(speech);
+    voiceList.insertAdjacentHTML("beforeend",option);
+  }
+});
+
+function textToSpeech(text){
+  let speech = new SpeechSynthesisUtterance(text);
+  for(let i = 0; i < voiceOptions.length; i++){
+    if(voiceOptions[i].name === voiceList.value){
+      speech.voice = voiceOptions[i];
+    }
+  }
+  speechSynthesis.speak(speech);
+}
+
+speechBtn.addEventListener("click", (e)=>{
+  e.preventDefault();
+  if(speechBox.value.length > 0){
+    if(!synth.speaking){ 
+      // Call the function only when the speech is not currently speaking
+      textToSpeech(speechBox.value);
+    }
+
+    //pause and play for long speech 
+    if(speechBox.value.length > 50){
+      if(isSpeaking){
+        synth.resume();
+        isSpeaking = false;
+        speechBtn.innerHTML = "Pause";
+      }
+      else{
+        synth.pause();
+        isSpeaking = true;
+        speechBtn.innerHTML = "Play";
+      }
+    }
+
+    setInterval(() =>{
+      if(!synth.speaking && !isSpeaking){
+        isSpeaking = true;
+        speechBtn.innerHTML = "Convert To Speech";
+      }
+    })
+  }
 });

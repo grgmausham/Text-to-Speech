@@ -6,16 +6,24 @@
     <title>Text To Speech </title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class="text">
-        <h1>Text To Speech Converter</h1>
-        <textarea placeholder="Write anything here..."></textarea>
-        <div class="row">
-            <select></select>
-            <button><img src="assets/images/play.png" alt="play">Listen</button>
+    <body>
+        <div class="wrapper">
+          <div class="header">Text To Speech</div>
+          <form action="#">
+            <div class="column">
+              <label>Select Voice</label>
+              <div class="voices">
+                <select></select>
+              </div>
+            </div>
+            <div class="column">
+              <label>Enter your text</label>
+              <textarea class="speechBox"></textarea>
+            </div>
+            <button class="convert">Convert To Speech</button>
+          </form>
         </div>
-
-    </div>
 </body>
+<script src="https://kit.fontawesome.com/3b20d96fa9.js" crossorigin="anonymous"></script>
 <script src="assets/javascript/script.js"></script>
 </html>
