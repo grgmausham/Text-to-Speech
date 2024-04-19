@@ -21,12 +21,15 @@
   }
   
   .header{
-    text-align: left;
+    text-align: center;
     margin-bottom: 25px;
     font-size: 20px;
     font-weight: 500;
   }
-  
+  span {
+    color: #7d01019e;
+  }
+
   .column{
     display: flex;
     flex-direction: column;
