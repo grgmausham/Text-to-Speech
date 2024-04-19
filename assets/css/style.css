@@ -15,9 +15,24 @@
     flex-direction: column;
 }
 .text h1 {
-    color: azure;
+    color: rgb(10, 142, 162);
     font-size: 45px;
     font-weight: 500;
     margin-top: -50px;
     margin-bottom: 50px;
+}
+/*textarea*/
+textarea {
+    width: 400px;
+    height: 250px;
+    background: #061e29;
+    color: white;
+    font: 15px;
+    border: 0;
+    outline: 0;
+    padding: 20px;
+    border-top: 5px solid #3b0986;
+    border-left: 2px solid #3b0986;
+    resize: none;
+    margin-bottom: 30px;
 }
