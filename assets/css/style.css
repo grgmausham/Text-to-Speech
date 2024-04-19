@@ -1,0 +1,23 @@
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*General styles*/
+.text {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #a82626, #410b05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.text h1 {
+    color: azure;
+    font-size: 45px;
+    font-weight: 500;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
