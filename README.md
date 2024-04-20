@@ -52,9 +52,9 @@ I decided to use red linear gredient colours for background as they are not too 
 - color2: linear-gradient(45deg, #6178b3, #055de0)
 
 ## Features
--This app has ony 1 views of home page.
--Dropdown select menu button to select the peferable voices.
--Convert to speech button to convert the texts to speech.
+ - This app has ony 1 views of home page.
+ - Dropdown select menu button to select the peferable voices.
+ - Convert to speech button to convert the texts to speech.
 ### Landing Page
 
 The landing page is an easy to use page. Minimal information keeping it clear for the user to navigate.
