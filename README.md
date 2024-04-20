@@ -11,10 +11,9 @@ HTML5, CSS, JavaScript
 
 ## CONTENTS
 * [Code Structure](#code-structure)
-    - HTML Files
     - Assets Folder
-    - README File
-    - Images Folder
+    - Readme File
+    - Html file
 
 * [Design](#design)
     - Colour Scheme
